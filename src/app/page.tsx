@@ -9,7 +9,7 @@ export default function Home() {
                 {/* Left Side - Name and Info */}
                 <div className="flex flex-col justify-between p-8 md:p-12 lg:p-16 bg-white">
                     <div className="flex-1 flex flex-col justify-center">
-                        <h1 className="text-[4rem] md:text-[6rem] lg:text-[8rem] font-bold text-black leading-[0.9] tracking-tight opacity-0-initial animate-fade-in">
+                        <h1 className="text-[3.5rem] md:text-[6rem] lg:text-[8rem] font-bold text-black leading-[0.9] tracking-tight opacity-0-initial animate-fade-in">
                             Manav
                             <br />
                             Goyani
