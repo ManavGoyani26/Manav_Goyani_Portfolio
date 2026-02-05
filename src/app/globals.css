@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+@layer base {
+  * {
+    @apply box-border;
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply bg-white text-black font-sans antialiased;
+  }
+
+  /* Reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  .container-main {
+    @apply max-w-7xl mx-auto px-6 md:px-8;
+  }
+
+  .section-spacing {
+    @apply py-16 md:py-24;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .opacity-0-initial {
+    opacity: 0;
+  }
+}
