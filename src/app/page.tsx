@@ -23,11 +23,11 @@ export default function Home() {
                 </div>
 
                 {/* Right Side - Image Placeholder / Visual */}
-                <div className="hidden md:flex items-center justify-center bg-neutral-100 relative overflow-hidden">
+                <div className="flex md:flex items-center justify-center bg-neutral-100 relative overflow-hidden py-12 md:py-0 min-h-[50vh] md:min-h-auto">
                     <div className="absolute inset-0 bg-gradient-to-br from-neutral-100 to-neutral-200" />
 
                     {/* Circular Image */}
-                    <div className="relative z-10 w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-white shadow-2xl">
+                    <div className="relative z-10 w-48 h-48 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-white shadow-2xl">
                         <img
                             src="/Home.jpeg"
                             alt="Manav Goyani"
