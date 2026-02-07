@@ -1,6 +1,7 @@
 import Button from '@/components/ui/Button';
 import TypingText from '@/components/ui/TypingText';
 import GraphBackground from '@/components/ui/GraphBackground';
+import NeuralNetBackground from '@/components/ui/NeuralNetBackground';
 
 export default function Home() {
     return (
@@ -31,6 +32,9 @@ export default function Home() {
                 {/* Right Side - Image Placeholder / Visual */}
                 <div className="flex md:flex items-center justify-center bg-neutral-100 relative overflow-hidden py-12 md:py-0 min-h-[50vh] md:min-h-auto">
                     <div className="absolute inset-0 bg-gradient-to-br from-neutral-100 to-neutral-200" />
+
+                    {/* Neural Net Integration */}
+                    <NeuralNetBackground />
 
                     {/* Circular Image */}
                     <div className="relative z-10 w-48 h-48 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-white shadow-2xl">
