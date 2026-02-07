@@ -1,22 +1,28 @@
 import Button from '@/components/ui/Button';
 import TypingText from '@/components/ui/TypingText';
+import GraphBackground from '@/components/ui/GraphBackground';
 
 export default function Home() {
     return (
         <>
             {/* Hero Section - Split Layout */}
-            <section className="min-h-[calc(100vh-4rem)] grid md:grid-cols-2">
+            <section className="min-h-[calc(100vh-4rem)] grid md:grid-cols-2 relative overflow-hidden">
+                {/* Background Visuals */}
+                <GraphBackground />
+
                 {/* Left Side - Name and Info */}
-                <div className="flex flex-col justify-between p-8 md:p-12 lg:p-16 bg-white">
+                <div className="flex flex-col justify-between p-8 md:p-12 lg:p-16 bg-white/80 backdrop-blur-sm z-10">
                     <div className="flex-1 flex flex-col justify-center">
-                        <h1 className="text-[3.5rem] md:text-[6rem] lg:text-[8rem] font-bold text-black leading-[0.9] tracking-tight opacity-0-initial animate-fade-in">
-                            Manav
+                        <h1 className="text-[2.5rem] md:text-[4rem] lg:text-[5rem] font-bold text-black leading-[0.9] tracking-tight opacity-0-initial animate-fade-in">
+                            Well Hello!
+                            <br />
+                            I&apos;m Manav
                             <br />
                             Goyani
                         </h1>
                     </div>
                     <div className="flex items-center justify-between opacity-0-initial animate-fade-in-delay-2">
-                        <p className="text-lg md:text-xl text-neutral-600">
+                        <p className="text-xl md:text-2xl font-medium text-neutral-800">
                             Data & AI Analyst based in Toronto
                         </p>
                     </div>
@@ -51,10 +57,10 @@ export default function Home() {
                 <div className="max-w-5xl">
                     <p className="text-3xl md:text-4xl lg:text-5xl font-medium leading-relaxed opacity-0-initial animate-fade-in">
                         <span className="text-black">
-                            I'm Manav Goyani, a Data & AI Enthusiast,
+                            I engineer scalable data platforms and cloud infrastructure.
                         </span>{' '}
                         <span className="text-neutral-400">
-                            I specialize in turning complex data and AI prototypes into scalable, reliable solutions.
+                            I move beyond "it works on my machine" to build reliable, production-grade systems that turn raw data into business impact.
                         </span>
                     </p>
                 </div>

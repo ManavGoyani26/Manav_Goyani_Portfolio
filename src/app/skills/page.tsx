@@ -1,136 +1,85 @@
 import { Metadata } from 'next';
+import { skillGroups } from '@/lib/data';
+import {
+    SiPython, SiPostgresql, SiPandas, SiNumpy, SiTableau, SiApacheairflow,
+    SiAmazon, SiTerraform, SiDocker, SiGithubactions, SiLinux,
+    SiScikitlearn, SiPytorch, SiTensorflow, SiOpenai,
+    SiGit, SiPostman, SiFastapi
+} from 'react-icons/si';
+import { IconType } from 'react-icons';
 
 export const metadata: Metadata = {
     title: 'Tools',
-    description: 'Technologies and tools I work with regularly.',
+    description: 'Technologies and tools I work with regularly, categorized by function.',
 };
 
-// Tool data with remote icon URLs
-const tools = [
-    {
-        name: 'AWS',
-        description: 'Cloud Infrastructure',
-        icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg',
-    },
-    {
-        name: 'Python',
-        description: 'Programming Language',
-        icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg',
-    },
-    {
-        name: 'MySQL',
-        description: 'Database Management',
-        icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg',
-    },
-    {
-        name: 'Power BI',
-        description: 'Data Visualization',
-        icon: 'https://upload.wikimedia.org/wikipedia/commons/c/cf/New_Power_BI_Logo.svg',
-    },
-    {
-        name: 'TensorFlow',
-        description: 'Machine Learning',
-        icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tensorflow/tensorflow-original.svg',
-    },
-    {
-        name: 'Scikit-learn',
-        description: 'ML Library',
-        icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/scikitlearn/scikitlearn-original.svg',
-    },
-    {
-        name: 'OpenCV',
-        description: 'Computer Vision',
-        icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/opencv/opencv-original.svg',
-    },
-    {
-        name: 'GitHub',
-        description: 'Version Control',
-        icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg',
-    },
-    {
-        name: 'Git',
-        description: 'Source Control',
-        icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg',
-    },
-    {
-        name: 'Azure',
-        description: 'Cloud Platform',
-        icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azure/azure-original.svg',
-    },
-    {
-        name: 'Postman',
-        description: 'API Testing',
-        icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postman/postman-original.svg',
-    },
-    {
-        name: 'Linux',
-        description: 'Operating System',
-        icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linux/linux-original.svg',
-    },
-    {
-        name: 'Supabase',
-        description: 'Backend as a Service',
-        icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/supabase/supabase-original.svg',
-    },
-    {
-        name: 'Jira',
-        description: 'Project Management',
-        icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jira/jira-original.svg',
-    },
-    {
-        name: 'Jupyter',
-        description: 'Data Science',
-        icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jupyter/jupyter-original.svg',
-    },
-];
+const iconConfig: Record<string, { icon: IconType; color: string }> = {
+    'Python': { icon: SiPython, color: 'group-hover:text-[#3776AB]' },
+    'SQL': { icon: SiPostgresql, color: 'group-hover:text-[#336791]' },
+    'Pandas': { icon: SiPandas, color: 'group-hover:text-[#150458]' },
+    'NumPy': { icon: SiNumpy, color: 'group-hover:text-[#013243]' },
+    'Power BI': { icon: null as any, color: 'group-hover:text-[#F2C811]' },
+    'Excel (VBA)': { icon: null as any, color: 'group-hover:text-[#217346]' },
+    'Tableau': { icon: SiTableau, color: 'group-hover:text-[#E97627]' },
+    'Airflow': { icon: SiApacheairflow, color: 'group-hover:text-[#017CEE]' },
+    'AWS (Lambda, S3, RDS, ECS)': { icon: SiAmazon, color: 'group-hover:text-[#FF9900]' },
+    'Azure': { icon: null as any, color: 'group-hover:text-[#0078D4]' },
+    'Terraform': { icon: SiTerraform, color: 'group-hover:text-[#7B42BC]' },
+    'Docker': { icon: SiDocker, color: 'group-hover:text-[#2496ED]' },
+    'GitHub Actions': { icon: SiGithubactions, color: 'group-hover:text-[#2088FF]' },
+    'Linux': { icon: SiLinux, color: 'group-hover:text-[#FCC624]' },
+    'CI/CD': { icon: SiGithubactions, color: 'group-hover:text-[#2088FF]' },
+    'Scikit-learn': { icon: SiScikitlearn, color: 'group-hover:text-[#F7931E]' },
+    'PyTorch': { icon: SiPytorch, color: 'group-hover:text-[#EE4C2C]' },
+    'TensorFlow': { icon: SiTensorflow, color: 'group-hover:text-[#FF6F00]' },
+    'OpenAI API': { icon: SiOpenai, color: 'group-hover:text-white' },
+    'Git': { icon: SiGit, color: 'group-hover:text-[#F05032]' },
+    'Postman': { icon: SiPostman, color: 'group-hover:text-[#FF6C37]' },
+    'PostgreSQL': { icon: SiPostgresql, color: 'group-hover:text-[#336791]' },
+    'FastAPI': { icon: SiFastapi, color: 'group-hover:text-[#05998B]' },
+};
 
 export default function SkillsPage() {
     return (
         <section className="py-20 md:py-32 px-8 md:px-12 lg:px-16 bg-white min-h-screen">
             {/* Header */}
-            <div className="max-w-6xl mx-auto mb-16 opacity-0-initial animate-fade-in">
+            <div className="max-w-6xl mx-auto mb-16">
                 <h1 className="text-4xl md:text-5xl font-bold text-black mb-4">
                     Tools
                 </h1>
                 <p className="text-lg text-neutral-500 max-w-2xl">
-                    Technologies and tools I work with regularly.
+                    My technical toolkit, organized by function and area of expertise.
                 </p>
             </div>
 
-            {/* Tools Grid - Card Layout */}
-            <div className="max-w-6xl mx-auto">
-                <div className="grid md:grid-cols-2 gap-4">
-                    {tools.map((tool, index) => (
-                        <div
-                            key={tool.name}
-                            className="flex items-center gap-6 p-6 bg-neutral-50 hover:bg-neutral-100 border border-neutral-100 hover:border-blue-200 transition-all duration-300 rounded-xl group cursor-default"
-                        >
-                            {/* Icon */}
-                            <div className="w-12 h-12 flex-shrink-0 flex items-center justify-center grayscale group-hover:grayscale-0 transition-all duration-300">
-                                <img
-                                    src={tool.icon}
-                                    alt={`${tool.name} logo`}
-                                    className="w-full h-full object-contain"
-                                />
-                            </div>
-
-                            {/* Info */}
-                            <div className="flex-1">
-                                <h3 className="text-xl font-bold text-black mb-1 group-hover:text-blue-600 transition-colors">
-                                    {tool.name}
-                                </h3>
-                                <p className="text-sm text-neutral-500 font-medium">
-                                    {tool.description}
-                                </p>
-                            </div>
-
-                            {/* Optional Percentage Placeholder (if we want to match reference exactly, but unused for now) */}
-                            {/* <div className="text-sm font-medium text-neutral-300">
-                                90%
-                            </div> */}
+            {/* Categorized Tools Grid */}
+            <div className="max-w-6xl mx-auto space-y-20">
+                {skillGroups.map((group) => (
+                    <div key={group.category}>
+                        <h2 className="text-xl font-bold text-black mb-10 border-b border-neutral-100 pb-2">
+                            {group.category}
+                        </h2>
+                        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
+                            {group.skills.map((skill) => {
+                                const config = iconConfig[skill] || { icon: null, color: 'group-hover:text-blue-400' };
+                                const Icon = config.icon;
+                                return (
+                                    <div
+                                        key={skill}
+                                        className="group relative flex flex-col items-center justify-center p-8 bg-neutral-900 rounded-2xl border border-neutral-800 transition-all duration-300 hover:border-neutral-700 hover:bg-neutral-800/80 hover:-translate-y-1 shadow-xl"
+                                    >
+                                        <div className={`text-4xl text-neutral-500 transition-colors duration-300 ${config.color} mb-4`}>
+                                            {Icon ? <Icon /> : <span className="text-xl font-bold">{skill[0]}</span>}
+                                        </div>
+                                        <h3 className="text-sm font-medium text-neutral-400 group-hover:text-white transition-colors text-center">
+                                            {skill}
+                                        </h3>
+                                    </div>
+                                );
+                            })}
                         </div>
-                    ))}
-                </div>
+                    </div>
+                ))}
             </div>
         </section>
     );
