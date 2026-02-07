@@ -2,7 +2,7 @@
 
 export default function NeuralNetBackground() {
     return (
-        <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none select-none opacity-[0.22] grayscale invert hidden md:block">
+        <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none select-none opacity-[0.22] grayscale invert">
             <div
                 className="absolute inset-0 bg-no-repeat bg-right-bottom bg-contain"
                 style={{
